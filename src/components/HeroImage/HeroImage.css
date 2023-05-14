@@ -1,16 +1,103 @@
-.hero-image {
-  /* Replace with your own image URL */
-  background-image: url("https://via.placeholder.com/150");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.video {
+  position: relative;
+  display: block;
+}
 
-  /* Set the width and height to cover the viewport */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100vh; /* vh stands for viewport height */
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.video-intercept {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: auto;
 }
 
 .hero-text {
-  margin-left: 5%;
-  margin-top: 10%;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-100%, -30%);
+  z-index: 3;
+  text-align: left;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#cataloguebtn {
+  background-color: orange;
+  color: white;
+  border-color: orange;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-text {
+  opacity: 0;
+  animation: fadeIn 7s ease-in-out 1s forwards;
+}
+
+.fade-in-scroll-instructions {
+  opacity: 0;
+  animation: fadeIn 10s ease-in-out 1s forwards;
+}
+
+.scroll-instructions {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.bounce {
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+.hero-text,
+.scroll-instruction {
+  transition: opacity 1s ease;
+}
+
+.fade-out {
+  opacity: 0 !important;
 }

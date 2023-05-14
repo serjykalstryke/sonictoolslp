@@ -1,0 +1,45 @@
+.carttab {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the start */
+  top: 0;
+  right: -500px; /* Initially positioned outside the screen */
+  bottom: 0;
+  width: 500px;
+  background-color: #767980; /* Customize the background color */
+  transition: right 0.5s;
+  z-index: 999; /* Adjust the z-index as needed */
+}
+
+.carttab.open {
+  right: 0; /* Slide the sidebar in from the right */
+}
+
+.carttab nav {
+  flex-grow: 1;
+  overflow-y: auto; /* Add a scrollbar if the content is too long */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#cart-btn {
+  /* Add your styles here */
+  /* align-self: flex-end; this will align the button to the end */
+  margin-bottom: 10px;
+  margin-left: 10px;
+  background-color: orange;
+  color: white;
+  border-color: orange;
+}
+
+.cart-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  padding: 20px 0;
+  margin-top: auto;
+}

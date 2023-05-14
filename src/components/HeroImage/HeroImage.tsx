@@ -1,16 +1,70 @@
-import React from "react";
-import "./HeroImage.css"; // Your CSS file
-
+import React, { useRef, useEffect, useState } from "react";
+import YouTube, { YouTubeProps } from "react-youtube";
 import "./HeroImage.css"; // Your CSS file
 
 const HeroImage: React.FC = () => {
+  const playerRef = useRef<any>(null);
+  const [fadeOutText, setFadeOutText] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      if (position > 0) {
+        setFadeOutText(true);
+      } else {
+        setFadeOutText(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const options: YouTubeProps["opts"] = {
+    height: "100%",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      loop: 1,
+      modestbranding: 1,
+      playsinline: 1,
+      mute: 1,
+      playlist: "FT3ODSg1GFE",
+    },
+  };
+
   return (
-    <div className="hero-image d-flex justify-content-start align-items-center text-left">
-      <div className="text-white text-left hero-text">
-        <h1 className="display-4 text-left">Welcome to My Website!</h1>
+    <div className="video">
+      <div className="video-overlay"></div>
+      <div className="video-intercept"></div>
+      <YouTube
+        videoId="FT3ODSg1GFE"
+        opts={options}
+        style={{ height: "100vh", width: "100%" }}
+      />
+
+      <div className="text-white text-left hero-text fade-in-text">
+        <h1 className="display-4 text-left">Sonic Tools LP</h1>
         <p className="lead text-left">
-          This is a simple hero unit, a simple jumbotron-style component for
-          calling extra attention to featured content or information.
+          Proudly made in the USA, Sonic Tools LP is the leader of custom
+          manufacturing
+        </p>
+        <button id="cataloguebtn" className="btn btn-primary btn-lg">
+          Catalogue
+        </button>
+      </div>
+      <div
+        className={`text-white scroll-instruction fade-in-scroll-instructions ${
+          fadeOutText ? "fade-out" : ""
+        }`}
+      >
+        <p>
+          <span className="bounce">&#8595;</span> Scroll down to learn more{" "}
+          <span className="bounce">&#8595;</span>
         </p>
       </div>
     </div>

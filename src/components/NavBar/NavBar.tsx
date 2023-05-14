@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Navbar } from "react-bootstrap";
 import Sidebar from "../SideBar/SideBar";
+import CartTab from "../CartTab/CartTab";
 import "./NavBar.css";
 
 const NavigationBar = () => {
-  const [navbarBg, setNavbarBg] = useState("transparent");
+  const cartItems = [
+    { id: 1, name: "Product 1", price: 10.99, quantity: 2 },
+    { id: 2, name: "Product 2", price: 15.99, quantity: 1 },
+    // Add more items as needed
+  ];
+
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      if (isScrolled) {
-        setNavbarBg("dark");
-      } else {
-        setNavbarBg("transparent");
-      }
+      const position = window.pageYOffset;
+      setScrollPosition(position);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,11 +26,24 @@ const NavigationBar = () => {
     };
   }, []);
 
+  // Calculate transparency based on scroll position
+  const transparency = Math.min(scrollPosition / 500, 1);
+  const navbarStyle = {
+    backgroundColor: `rgba(0, 0, 0, ${transparency})`, // Adjust color as needed
+  };
+
   return (
-    <Navbar bg={navbarBg} variant="dark" fixed="top">
+    <Navbar style={navbarStyle} variant="dark" fixed="top">
       <div className="w-100 navbar-container">
-        <Sidebar />
-        <Navbar.Brand href="#home">My Website</Navbar.Brand>
+        <div className="left-container">
+          <Sidebar />
+        </div>
+        <div className="right-container">
+          <div className="cart-button">
+            <CartTab items={cartItems} />
+          </div>
+          <Navbar.Brand href="#home">Logo</Navbar.Brand>
+        </div>
       </div>
     </Navbar>
   );
