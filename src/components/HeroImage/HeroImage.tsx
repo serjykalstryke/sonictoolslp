@@ -80,8 +80,12 @@ const HeroImage: React.FC = () => {
           Catalogue
         </button>
       </div>
-      <div className={`text-white ${fadeOutText ? "fade-out" : "fade-in"}`}>
-        <div className="scroll-instruction">
+      <div className={`text-white ${fadeOutText ? "fade-out" : ""}`}>
+        <div
+          className={`scroll-instruction ${
+            fadeOutText ? "fade-out" : "fade-in"
+          }`}
+        >
           <p>
             <span className="bounce">&#8595;</span> Scroll down to learn more{" "}
             <span className="bounce">&#8595;</span>
