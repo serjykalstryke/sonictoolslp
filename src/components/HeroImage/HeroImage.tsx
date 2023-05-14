@@ -29,6 +29,20 @@ const HeroImage: React.FC = () => {
     };
   }, []);
 
+  const [isAutoplayEnabled, setIsAutoplayEnabled] = useState(false);
+
+  const handlePlayerReady = (event: any) => {
+    const isMobileSafari =
+      navigator.userAgent.match(/iPad|iPhone|iPod/i) &&
+      !(window as any).MSStream;
+
+    if (isMobileSafari) {
+      event.target.playVideo();
+    } else {
+      setIsAutoplayEnabled(true);
+    }
+  };
+
   const options: YouTubeProps["opts"] = {
     height: "100%",
     width: "100%",
@@ -50,6 +64,7 @@ const HeroImage: React.FC = () => {
       <YouTube
         videoId="FT3ODSg1GFE"
         opts={options}
+        onReady={handlePlayerReady}
         style={{ height: "100vh", width: "100%" }}
       />
 
