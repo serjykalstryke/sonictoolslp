@@ -7,6 +7,11 @@ const HeroImage: React.FC = () => {
   const [fadeOutText, setFadeOutText] = useState(false);
 
   useEffect(() => {
+    setFadeOutText(true);
+    const timer = setTimeout(() => {
+      setFadeOutText(false);
+    }, 3000);
+
     const handleScroll = () => {
       const position = window.pageYOffset;
       if (position > 0) {
@@ -19,6 +24,7 @@ const HeroImage: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -57,15 +63,13 @@ const HeroImage: React.FC = () => {
           Catalogue
         </button>
       </div>
-      <div
-        className={`text-white scroll-instruction fade-in-scroll-instructions ${
-          fadeOutText ? "fade-out" : ""
-        }`}
-      >
-        <p>
-          <span className="bounce">&#8595;</span> Scroll down to learn more{" "}
-          <span className="bounce">&#8595;</span>
-        </p>
+      <div className={`text-white ${fadeOutText ? "fade-out" : "fade-in"}`}>
+        <div className="scroll-instruction">
+          <p>
+            <span className="bounce">&#8595;</span> Scroll down to learn more{" "}
+            <span className="bounce">&#8595;</span>
+          </p>
+        </div>
       </div>
     </div>
   );
