@@ -7,7 +7,11 @@ const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const handleButtonClick = () => {
-    setIsOpen(!isOpen);
+    if (isOpen) {
+      setIsOpen(false); // Close the sidebar if it's already open
+    } else {
+      setIsOpen(true); // Open the sidebar if it's closed
+    }
   };
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -15,7 +19,8 @@ const Sidebar: React.FC = () => {
       if (
         isOpen == true &&
         sidebarRef.current &&
-        !sidebarRef.current.contains(target)
+        !sidebarRef.current.contains(target) &&
+        !(event.target instanceof HTMLButtonElement)
       ) {
         setIsOpen(false);
       }

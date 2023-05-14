@@ -12,7 +12,11 @@ const CartTab: React.FC<DropdownProps> = ({ items }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleButtonClick = () => {
-    setIsOpen(!isOpen);
+    if (isOpen) {
+      setIsOpen(false); // Close the sidebar if it's already open
+    } else {
+      setIsOpen(true); // Open the sidebar if it's closed
+    }
   };
 
   useEffect(() => {
@@ -21,7 +25,8 @@ const CartTab: React.FC<DropdownProps> = ({ items }) => {
       if (
         isOpen &&
         dropdownRef.current &&
-        !dropdownRef.current.contains(target)
+        !dropdownRef.current.contains(target) &&
+        !(event.target instanceof HTMLButtonElement)
       ) {
         setIsOpen(false);
       }
