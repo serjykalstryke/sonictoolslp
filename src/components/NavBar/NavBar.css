@@ -4,6 +4,7 @@
   align-items: center;
   width: 60%;
   transition: background-color 1s ease-in-out;
+  z-index: 10;
 }
 
 .left-container,

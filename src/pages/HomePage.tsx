@@ -10,7 +10,7 @@ import Footer from "../components/Footer/Footer";
 const HomePage: React.FC = () => {
   const videoId = "k9CMyeAwSgs";
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <NavBar />
       <HeroImage />
       <Carousel />

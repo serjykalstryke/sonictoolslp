@@ -59,18 +59,20 @@ const HeroImage: React.FC = () => {
 
   return (
     <div className="video">
-      <div className="video-overlay"></div>
-      <div className="video-intercept"></div>
-      <YouTube
-        videoId="FT3ODSg1GFE"
-        opts={options}
-        onReady={handlePlayerReady}
-        style={{ height: "100vh", width: "100%" }}
-      />
+      <div className="video-wrapper">
+        <div className="video-overlay"></div>
+        <div className="video-intercept"></div>
+        <YouTube
+          videoId="FT3ODSg1GFE"
+          opts={options}
+          onReady={handlePlayerReady}
+          className="video-fullscreen"
+        />
+      </div>
 
       <div className="text-white text-left hero-text fade-in-text">
-        <h1 className="display-4 text-left">Sonic Tools LP</h1>
-        <p className="lead text-left">
+        <h1 className="display-4 text-left hero-header">Sonic Tools LP</h1>
+        <p className="lead text-left hero-text-text">
           Proudly made in the USA, Sonic Tools LP is the leader of custom
           manufacturing
         </p>

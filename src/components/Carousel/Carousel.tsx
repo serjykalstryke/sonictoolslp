@@ -3,7 +3,7 @@ import { Carousel } from "react-bootstrap";
 
 const CarouselComponent = () => {
   return (
-    <>
+    <div className="tools-carousel">
       <h2 className="carousel-header">Header</h2>
       <Carousel>
         <Carousel.Item>
@@ -40,7 +40,7 @@ const CarouselComponent = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-    </>
+    </div>
   );
 };
 
