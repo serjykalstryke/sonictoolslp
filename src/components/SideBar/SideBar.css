@@ -10,7 +10,7 @@
 }
 
 .sidebar.open {
-  width: 500px;
+  width: 100vw;
 }
 
 .sidebar-button-wrapper {
