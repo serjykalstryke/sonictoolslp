@@ -66,7 +66,6 @@ const HeroImage: React.FC = () => {
     height: "100%",
     width: "100%",
     playerVars: {
-      autoplay: 1,
       controls: 0,
       loop: 1,
       modestbranding: 1,
@@ -89,7 +88,7 @@ const HeroImage: React.FC = () => {
         <div className="video-overlay"></div>
         <div className="video-intercept"></div>
         <YouTube
-          videoId="FT3ODSg1GFE"
+          videoId="FT3ODSg1GFE?autoplay=1"
           opts={options}
           onReady={handlePlayerReady}
           className="video-fullscreen"
