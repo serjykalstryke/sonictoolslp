@@ -20,3 +20,11 @@
 .cart-button {
   margin-right: 10px;
 }
+
+.navbar-container.transparent {
+  background-color: transparent;
+}
+
+.navbar-container.dark {
+  background-color: dark;
+}
