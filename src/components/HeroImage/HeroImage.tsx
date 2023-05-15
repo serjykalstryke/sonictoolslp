@@ -43,11 +43,14 @@ const HeroImage: React.FC = () => {
       event.target.playVideo();
     }
 
-    event.target.addEventListener(YouTube.PlayerState.ENDED, () => {
-      if (isMobileSafari) {
-        event.target.playVideo();
+    event.target.addEventListener(
+      YouTube.PlayerState.ENDED || YouTube.PlayerState.PAUSED,
+      () => {
+        if (isMobileSafari) {
+          event.target.playVideo();
+        }
       }
-    });
+    );
   };
 
   const options: YouTubeProps["opts"] = {
