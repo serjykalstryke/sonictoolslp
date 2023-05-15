@@ -40,8 +40,7 @@ const HeroImage: React.FC = () => {
       event.target.playVideo();
       event.target.mute();
 
-      window.addEventListener("pagehide", handlePageHide);
-      window.addEventListener("pageshow", handlePageShow);
+      document.addEventListener("visibilitychange", handleVisibilityChange);
     } else {
       setIsAutoplayEnabled(true);
       event.target.playVideo();
@@ -54,12 +53,12 @@ const HeroImage: React.FC = () => {
     });
   };
 
-  const handlePageHide = () => {
-    playerRef.current.pauseVideo(); // Pause video playback on page hide event
-  };
-
-  const handlePageShow = () => {
-    playerRef.current.playVideo(); // Resume video playback on page show event
+  const handleVisibilityChange = () => {
+    if (document.visibilityState === "hidden") {
+      playerRef.current.pauseVideo(); // Pause video when the page loses visibility
+    } else {
+      playerRef.current.playVideo(); // Resume video when the page regains visibility
+    }
   };
 
   const options: YouTubeProps["opts"] = {
