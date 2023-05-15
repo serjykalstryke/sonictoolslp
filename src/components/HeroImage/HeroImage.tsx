@@ -46,6 +46,8 @@ const HeroImage: React.FC = () => {
       event.target.playVideo();
     }
 
+    playerRef.current = event.target;
+
     event.target.addEventListener(YouTube.PlayerState.ENDED, () => {
       if (isMobileSafari) {
         event.target.playVideo();
@@ -75,6 +77,13 @@ const HeroImage: React.FC = () => {
     },
   };
 
+  useEffect(() => {
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
   return (
     <div className="video">
       <div className="video-wrapper">
@@ -85,6 +94,7 @@ const HeroImage: React.FC = () => {
           opts={options}
           onReady={handlePlayerReady}
           className="video-fullscreen"
+          ref={playerRef}
         />
       </div>
 
