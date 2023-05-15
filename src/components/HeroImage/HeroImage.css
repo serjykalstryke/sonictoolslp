@@ -11,72 +11,21 @@ body {
   overflow: hidden;
 }
 
-/* Small devices (landscape phones, less than 576px) */
-@media (max-width: 2100.98px) {
-  .video {
-    height: 80vh;
-  }
+ /* By default, apply these styles */
+.video {
+  height: 100vh; /* Full height for larger screens */
+  width: 100%;
 }
 
-/* Medium devices (tablets, less than 968px) */
-@media (max-width: 968.98px) {
-  .video {
-    height: 70vh;
-  }
+.hero-text {
+  top: 40%;
+  font-size: 30px;
 }
 
-/* Medium devices (tablets, less than 768px) */
-@media (max-width: 900.98px) {
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
   .video {
-    height: 40vh;
-  }
-}
-
-/* Small devices (landscape phones, less than 576px) */
-@media (max-width: 1600.98px) {
-  .video {
-    height: 34vh;
-  }
-}
-
-@media (max-width: 1500px) and (orientation: landscape) {
-  .video {
-    height: 80vh;
-    width: 100%;
-  }
-
-  .hero-text {
-    top: 40%;
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 1200px) and (orientation: landscape) {
-  .video {
-    height: 80vh;
-    width: 100%;
-  }
-
-  .hero-text {
-    top: 40%;
-    font-size: 30px;
-  }
-}
-@media (max-width: 1100px) and (orientation: landscape) {
-  .video {
-    height: 75vh;
-    width: 100%;
-  }
-
-  .hero-text {
-    top: 40%;
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 768px) and (orientation: landscape) {
-  .video {
-    height: 80vh;
+    height: 33vh; /* 1/3rd of the height for smaller screens */
   }
 
   .hero-text {
@@ -85,16 +34,18 @@ body {
   }
 }
 
-@media (max-width: 576px) and (orientation: landscape) {
+/* Small devices (landscape phones, less than 576px) */
+@media (max-width: 575.98px) {
   .video {
-    height: 26.5vh;
+    height: 33vh; /* 1/3rd of the height for even smaller screens */
   }
 
   .hero-text {
     top: 40%;
-    font-size: 28px;
+    font-size: 24px; /* Smaller text for smallest screens */
   }
 }
+
 
 .video-overlay {
   position: absolute;
