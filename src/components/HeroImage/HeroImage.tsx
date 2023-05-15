@@ -38,7 +38,6 @@ const HeroImage: React.FC = () => {
 
     if (isMobileSafari) {
       event.target.playVideo();
-      event.target.mute();
 
       document.addEventListener("visibilitychange", handleVisibilityChange);
     } else {
