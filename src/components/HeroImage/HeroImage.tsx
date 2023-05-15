@@ -67,7 +67,7 @@ const HeroImage: React.FC = () => {
     height: "100%",
     width: "100%",
     playerVars: {
-      autoplay: isAutoplayEnabled ? 1 : 0,
+      autoplay: 1,
       controls: 0,
       loop: 1,
       modestbranding: 1,
