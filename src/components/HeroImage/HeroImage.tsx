@@ -38,6 +38,10 @@ const HeroImage: React.FC = () => {
 
     if (isMobileSafari) {
       event.target.playVideo();
+      event.target.mute();
+
+      window.addEventListener("pagehide", handlePageHide);
+      window.addEventListener("pageshow", handlePageShow);
     } else {
       setIsAutoplayEnabled(true);
       event.target.playVideo();
@@ -48,18 +52,14 @@ const HeroImage: React.FC = () => {
         event.target.playVideo();
       }
     });
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
   };
 
-  const handleVisibilityChange = () => {
-    const isMobileSafari =
-      navigator.userAgent.match(/iPad|iPhone|iPod/i) &&
-      !(window as any).MSStream;
+  const handlePageHide = () => {
+    playerRef.current.pauseVideo(); // Pause video playback on page hide event
+  };
 
-    if (isMobileSafari && document.visibilityState === "visible") {
-      playerRef.current.playVideo(); // Resume video playback on mobile devices when the page becomes visible
-    }
+  const handlePageShow = () => {
+    playerRef.current.playVideo(); // Resume video playback on page show event
   };
 
   const options: YouTubeProps["opts"] = {
