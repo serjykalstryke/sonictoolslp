@@ -43,14 +43,23 @@ const HeroImage: React.FC = () => {
       event.target.playVideo();
     }
 
-    event.target.addEventListener(
-      YouTube.PlayerState.ENDED || YouTube.PlayerState.PAUSED,
-      () => {
-        if (isMobileSafari) {
-          event.target.playVideo();
-        }
+    event.target.addEventListener(YouTube.PlayerState.ENDED, () => {
+      if (isMobileSafari) {
+        event.target.playVideo();
       }
-    );
+    });
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+  };
+
+  const handleVisibilityChange = () => {
+    const isMobileSafari =
+      navigator.userAgent.match(/iPad|iPhone|iPod/i) &&
+      !(window as any).MSStream;
+
+    if (isMobileSafari && document.visibilityState === "visible") {
+      playerRef.current.playVideo(); // Resume video playback on mobile devices when the page becomes visible
+    }
   };
 
   const options: YouTubeProps["opts"] = {
