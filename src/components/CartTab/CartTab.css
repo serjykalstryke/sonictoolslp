@@ -8,7 +8,7 @@
   bottom: 0;
   width: 0px;
   background-color: #767980; /* Customize the background color */
-  transition: right 0.5s;
+  transition: width 0.5s;
   z-index: 999;
 }
 
