@@ -5,15 +5,15 @@
   justify-content: flex-start;
   top: 55px;
   bottom: 0;
-  left: 0;
-  width: 0;
+  left: -100%;
+  width: 100vw;
   overflow: hidden;
-  transition: width 0.5s;
+  transition: left 0.5s;
   background-color: #767980;
 }
 
 .sidebar.open {
-  width: 100vw;
+  left: 0;
 }
 
 .sidebar-button-wrapper {
