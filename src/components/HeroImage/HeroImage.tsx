@@ -29,7 +29,7 @@ const HeroImage: React.FC = () => {
     };
   }, []);
 
-  const [isAutoplayEnabled, setIsAutoplayEnabled] = useState(false);
+  const [isAutoplayEnabled, setIsAutoplayEnabled] = useState(true);
 
   const handlePlayerReady = (event: any) => {
     const isMobileSafari =
@@ -40,6 +40,7 @@ const HeroImage: React.FC = () => {
       event.target.playVideo();
     } else {
       setIsAutoplayEnabled(true);
+      event.target.playVideo();
     }
   };
 
@@ -47,7 +48,7 @@ const HeroImage: React.FC = () => {
     height: "100%",
     width: "100%",
     playerVars: {
-      autoplay: 1,
+      autoplay: isAutoplayEnabled ? 1 : 0,
       controls: 0,
       loop: 1,
       modestbranding: 1,
@@ -87,7 +88,7 @@ const HeroImage: React.FC = () => {
           }`}
         >
           <p>
-            <span className="bounce">&#8595;</span> Scroll down to learn more{" "}
+            <span className="bounce">&#8595;</span> Scroll down to learn more
             <span className="bounce">&#8595;</span>
           </p>
         </div>

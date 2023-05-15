@@ -3,7 +3,6 @@
   justify-content: space-between;
   align-items: center;
   width: 60%;
-  transition: background-color 1s ease-in-out;
   z-index: 10;
 }
 
@@ -20,12 +19,4 @@
 
 .cart-button {
   margin-right: 10px;
-}
-
-.navbar-container.transparent {
-  background-color: transparent;
-}
-
-.navbar-container.dark {
-  background-color: dark;
 }

@@ -29,7 +29,7 @@ const NavigationBar = () => {
   // Calculate transparency based on scroll position
   const transparency = Math.min(scrollPosition / 500, 1);
   const navbarStyle = {
-    backgroundColor: `rgba(0, 0, 0, ${transparency})`, // Adjust color as needed
+    backgroundColor: "#767980",
   };
 
   return (

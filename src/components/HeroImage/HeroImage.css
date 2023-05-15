@@ -1,11 +1,99 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .video {
   position: relative;
-  display: block;
-  z-index: 1;
-  padding-bottom: 56.25%; /* for 16:9 aspect ratio */
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
-  z-index: 2;
-  margin-bottom: 5%;
+}
+
+/* Small devices (landscape phones, less than 576px) */
+@media (max-width: 2100.98px) {
+  .video {
+    height: 80vh;
+  }
+}
+
+/* Medium devices (tablets, less than 968px) */
+@media (max-width: 968.98px) {
+  .video {
+    height: 70vh;
+  }
+}
+
+/* Medium devices (tablets, less than 768px) */
+@media (max-width: 900.98px) {
+  .video {
+    height: 40vh;
+  }
+}
+
+/* Small devices (landscape phones, less than 576px) */
+@media (max-width: 1600.98px) {
+  .video {
+    height: 34vh;
+  }
+}
+
+@media (max-width: 1500px) and (orientation: landscape) {
+  .video {
+    height: 80vh;
+    width: 100%;
+  }
+
+  .hero-text {
+    top: 40%;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1200px) and (orientation: landscape) {
+  .video {
+    height: 80vh;
+    width: 100%;
+  }
+
+  .hero-text {
+    top: 40%;
+    font-size: 30px;
+  }
+}
+@media (max-width: 1100px) and (orientation: landscape) {
+  .video {
+    height: 75vh;
+    width: 100%;
+  }
+
+  .hero-text {
+    top: 40%;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .video {
+    height: 80vh;
+  }
+
+  .hero-text {
+    top: 40%;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 576px) and (orientation: landscape) {
+  .video {
+    height: 26.5vh;
+  }
+
+  .hero-text {
+    top: 40%;
+    font-size: 28px;
+  }
 }
 
 .video-overlay {
@@ -31,10 +119,9 @@
 
 .hero-text {
   position: absolute;
-  top: 55%;
-  left: 40%;
-  transform: translate(-100%, -30%);
-  z-index: 3;
+  top: 45%;
+  left: 10%;
+  z-index: 2;
   text-align: left;
   color: white;
   background: rgba(0, 0, 0, 0.5);
@@ -68,15 +155,15 @@
 }
 
 .scroll-instruction {
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 40px; /* Adjust the value as needed */
+  bottom: 40px;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: white;
-  opacity: 1; /* Set initial opacity to 1 */
+  opacity: 1;
   z-index: 5;
   transition: opacity 9s ease-in-out;
 }
@@ -118,12 +205,13 @@
 }
 
 .video-wrapper {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  width: 100%;
-  padding-bottom: 56.25%; /* for 16:9 aspect ratio */
-  overflow: hidden;
+  width: 100vw;
+  height: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+  z-index: 1;
 }
 
 .video-fullscreen {
@@ -132,6 +220,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 1800px) {
