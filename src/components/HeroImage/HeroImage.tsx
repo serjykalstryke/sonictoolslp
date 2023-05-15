@@ -42,6 +42,12 @@ const HeroImage: React.FC = () => {
       setIsAutoplayEnabled(true);
       event.target.playVideo();
     }
+
+    event.target.addEventListener(YouTube.PlayerState.ENDED, () => {
+      if (isMobileSafari) {
+        event.target.playVideo();
+      }
+    });
   };
 
   const options: YouTubeProps["opts"] = {
