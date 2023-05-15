@@ -4,9 +4,9 @@
   flex-direction: column;
   justify-content: flex-start; /* Align items to the start */
   top: 55px;
-  right: -500px; /* Initially positioned outside the screen */
+  right: -100%; /* Initially positioned outside the screen */
   bottom: 0;
-  width: 0px;
+  width: 100vw;
   background-color: #767980; /* Customize the background color */
   transition: width 0.5s;
   z-index: 999;
@@ -14,7 +14,6 @@
 
 .carttab.open {
   right: 0; /* Slide the sidebar in from the right */
-  width: 100vw;
 }
 
 .carttab nav {
