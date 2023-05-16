@@ -1,0 +1,21 @@
+.industry-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-header {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 48px;
+  text-align: center;
+  color: white;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 1);
+}

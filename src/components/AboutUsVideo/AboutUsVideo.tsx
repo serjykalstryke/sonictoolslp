@@ -8,8 +8,10 @@ interface YouTubeVideoProps {
 
 const YouTubeVideo: React.FC<YouTubeVideoProps> = ({ videoId }) => {
   return (
-    <>
-      <h2>Header</h2>
+    <div className="video-wrapper">
+      <div className="header-wrapper">
+        <h2 className="about-us-header">Our Story</h2>
+      </div>
       <div className="youtube-video-container">
         <iframe
           src={`https://www.youtube.com/embed/${videoId}`}
@@ -19,7 +21,7 @@ const YouTubeVideo: React.FC<YouTubeVideoProps> = ({ videoId }) => {
           allowFullScreen
         ></iframe>
       </div>
-    </>
+    </div>
   );
 };
 

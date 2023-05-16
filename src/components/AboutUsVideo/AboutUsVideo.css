@@ -1,6 +1,13 @@
+.about-us-header {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 48px;
+  text-align: center;
+  color: white;
+}
+
 .youtube-video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio (change this value based on the aspect ratio of your video) */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
 }
@@ -17,12 +24,12 @@
 
 @media (max-width: 768px) {
   .youtube-video-container {
-    padding-bottom: 75%; /* Adjust the aspect ratio as needed */
+    padding-bottom: 100%; /* Adjust the aspect ratio as needed */
   }
 }
 
 @media (max-width: 480px) {
   .youtube-video-container {
-    padding-bottom: 100%; /* Adjust the aspect ratio as needed */
+    height: 100%; /* Adjust the aspect ratio as needed */
   }
 }

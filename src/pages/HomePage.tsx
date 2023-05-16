@@ -7,15 +7,25 @@ import YouTubeVideo from "../components/AboutUsVideo/AboutUsVideo";
 import IndustryCarousel from "../components/IndustryCarousel/IndustryCarousel";
 import Footer from "../components/Footer/Footer";
 
+import "./Home.css";
+
 const HomePage: React.FC = () => {
   const videoId = "k9CMyeAwSgs";
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <NavBar />
       <HeroImage />
       <Carousel />
-      <YouTubeVideo videoId={videoId} />
+      <div className="layout">
+        <YouTubeVideo videoId={videoId} />
+      </div>
       <IndustryCarousel />
+
       <Footer />
     </div>
   );
