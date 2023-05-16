@@ -1,23 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./SideBar.css";
 
-const Sidebar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface SidebarProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
+
   const handleButtonClick = () => {
-    if (isOpen) {
-      setIsOpen(false); // Close the sidebar if it's already open
-    } else {
-      setIsOpen(true); // Open the sidebar if it's closed
-    }
+    setIsOpen(!isOpen); // Toggle the sidebar
   };
+
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as Node;
       if (
-        isOpen == true &&
+        isOpen &&
         sidebarRef.current &&
         !sidebarRef.current.contains(target) &&
         !(event.target instanceof HTMLButtonElement)
@@ -32,7 +34,7 @@ const Sidebar: React.FC = () => {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [isOpen]);
+  }, [isOpen, setIsOpen]);
 
   return (
     <>

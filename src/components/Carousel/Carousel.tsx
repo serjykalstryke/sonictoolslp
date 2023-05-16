@@ -13,8 +13,8 @@ const CarouselComponent = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First Slide Label</h3>
-            <p>Slide description goes here.</p>
+            <h3 className="header">First Slide Label</h3>
+            <p className="description">Slide description goes here.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -24,8 +24,8 @@ const CarouselComponent = () => {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Second Slide Label</h3>
-            <p>Slide description goes here.</p>
+            <h3 className="header">Second Slide Label</h3>
+            <p className="description">Slide description goes here.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -35,8 +35,8 @@ const CarouselComponent = () => {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h3>Third Slide Label</h3>
-            <p>Slide description goes here.</p>
+            <h3 className="header">Third Slide Label</h3>
+            <p className="description">Slide description goes here.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

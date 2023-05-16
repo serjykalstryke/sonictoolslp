@@ -12,6 +12,8 @@ const NavigationBar = () => {
   ];
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [cartTabOpen, setCartTabOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,15 +34,26 @@ const NavigationBar = () => {
     backgroundColor: `rgba(0, 0, 0, ${transparency})`, // Adjust color as needed
   };
 
+  const isDark = sidebarOpen || cartTabOpen;
+
   return (
-    <Navbar style={navbarStyle} variant="dark" fixed="top">
-      <div className="w-100 navbar-container">
+    <Navbar
+      style={navbarStyle}
+      className={isDark ? "dark" : ""}
+      variant="dark"
+      fixed="top"
+    >
+      <div className={`navbar-container ${isDark ? "dark" : ""}`}>
         <div className="left-container">
-          <Sidebar />
+          <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
         </div>
         <div className="right-container">
           <div className="cart-button">
-            <CartTab items={cartItems} />
+            <CartTab
+              isOpen={cartTabOpen}
+              setIsOpen={setCartTabOpen}
+              items={cartItems}
+            />
           </div>
           <Navbar.Brand href="#home">Logo</Navbar.Brand>
         </div>

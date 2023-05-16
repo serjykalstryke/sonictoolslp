@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60%;
+  width: 100%;
   z-index: 10;
+  transition: background-color 0.8s ease;
 }
 
 .left-container,
@@ -26,5 +27,5 @@
 }
 
 .navbar-container.dark {
-  background-color: dark;
+  background-color: rgba(0, 0, 0, 1);
 }

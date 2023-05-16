@@ -1,22 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./CartTab.css";
 
 interface DropdownProps {
   items: any[]; // Replace `any` with the type of your cart items
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
-const CartTab: React.FC<DropdownProps> = ({ items }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const CartTab: React.FC<DropdownProps> = ({ items, isOpen, setIsOpen }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleButtonClick = () => {
-    if (isOpen) {
-      setIsOpen(false); // Close the sidebar if it's already open
-    } else {
-      setIsOpen(true); // Open the sidebar if it's closed
-    }
+    setIsOpen(!isOpen); // Toggle the sidebar
   };
 
   useEffect(() => {
@@ -38,7 +35,7 @@ const CartTab: React.FC<DropdownProps> = ({ items }) => {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [isOpen]);
+  }, [isOpen, setIsOpen]);
 
   return (
     <>

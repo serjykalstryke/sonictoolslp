@@ -16,6 +16,14 @@ body {
   font-size: 30px;
 }
 
+.hero-header {
+  font-family: "anton", sans-serif;
+}
+
+.hero-text-text {
+  font-family: "Roboto", sans-serif;
+}
+
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
   .video {
@@ -60,7 +68,6 @@ body {
   }
 }
 
-
 .video-overlay {
   position: absolute;
   top: 0;
@@ -103,6 +110,7 @@ body {
   background-color: orange;
   color: white;
   border-color: orange;
+  font-family: "Roboto", sans-serif;
 }
 
 @keyframes fadeIn {
@@ -133,6 +141,15 @@ body {
   transition: opacity 9s ease-in-out;
 }
 
+.hero-text,
+.scroll-instruction {
+  transition: opacity 1s ease;
+}
+
+.scroll {
+  font-family: "Roboto", sans-serif;
+}
+
 @keyframes bounce {
   0%,
   20%,
@@ -152,11 +169,6 @@ body {
 .bounce {
   display: inline-block;
   animation: bounce 2s infinite;
-}
-
-.hero-text,
-.scroll-instruction {
-  transition: opacity 1s ease;
 }
 
 .fade-in {

@@ -8,8 +8,41 @@
   bottom: 0;
   width: 100vw;
   background-color: #767980; /* Customize the background color */
-  transition: right 0.5s;
+  transition: right 0.8s;
   z-index: 999;
+}
+
+@media screen and (min-width: 1200px) {
+  /* Desktop */
+
+  .carttab {
+    width: 25%;
+  }
+  .carttab.open {
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  /* Tablet */
+
+  .carttab {
+    width: 50%;
+  }
+  .carttab.open {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Mobile */
+  .carttab {
+    width: 100%;
+  }
+
+  .carttab.open {
+    right: 0; /* Slide the sidebar in from the right */
+  }
 }
 
 .carttab.open {
@@ -40,4 +73,8 @@
   gap: 10px;
   padding: 20px 0;
   margin-top: auto;
+}
+
+.dropdown-button {
+  font-family: "Roboto", sans-serif;
 }

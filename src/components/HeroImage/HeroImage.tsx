@@ -63,19 +63,18 @@ const HeroImage: React.FC = () => {
   };
 
   const options: YouTubeProps["opts"] = {
-  height: "100%",
-  width: "100%",
-  playerVars: {
-    autoplay: 1,
-    controls: 0,
-    loop: 1,
-    modestbranding: 1,
-    playsinline: 1,
-    mute: 1,
-    playlist: "FT3ODSg1GFE",
-  },
-};
-
+    height: "100%",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      loop: 1,
+      modestbranding: 1,
+      playsinline: 1,
+      mute: 1,
+      playlist: "FT3ODSg1GFE",
+    },
+  };
 
   useEffect(() => {
     document.addEventListener("visibilitychange", handleVisibilityChange);
@@ -114,7 +113,7 @@ const HeroImage: React.FC = () => {
             fadeOutText ? "fade-out" : "fade-in"
           }`}
         >
-          <p>
+          <p className="scroll">
             <span className="bounce">&#8595;</span> Scroll down to learn more
             <span className="bounce">&#8595;</span>
           </p>
