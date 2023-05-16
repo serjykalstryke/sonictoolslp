@@ -39,7 +39,7 @@ const NavigationBar = () => {
   return (
     <Navbar
       style={navbarStyle}
-      className={isDark ? "dark" : ""}
+      className={`${isDark ? "dark" : ""}`}
       variant="dark"
       fixed="top"
     >

@@ -103,9 +103,13 @@ const HeroImage: React.FC = () => {
           Proudly made in the USA, Sonic Tools LP is the leader of custom
           manufacturing
         </p>
+
         <button id="cataloguebtn" className="btn btn-primary btn-lg">
           Catalogue
         </button>
+      </div>
+      <div className={`mobile-text-container ${fadeOutText ? "" : "fade-in"}`}>
+        <p className="text-white mobile-text">Sonic Tools LP</p>
       </div>
       <div className={`text-white ${fadeOutText ? "fade-out" : ""}`}>
         <div

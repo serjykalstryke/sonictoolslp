@@ -46,6 +46,11 @@ body {
     top: 40%;
     font-size: 24px; /* Smaller text for smallest screens */
   }
+  .mobile-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* Medium devices (tablets, less than 992px) in landscape */
@@ -102,8 +107,7 @@ body {
   font-size: 36px;
 }
 
-.mobile-text {
-  display: none; /* Hide the mobile text by default */
+@media (max-width: 575.98px) {
 }
 
 #cataloguebtn {
@@ -123,8 +127,8 @@ body {
 }
 
 .fade-in-text {
-  opacity: 0; /* Set initial opacity to 0 */
-  animation: fadeIn 7s ease-in-out 1s forwards;
+  opacity: 1; /* Set initial opacity to 0 */
+  animation: fadeIn 8s ease-in;
 }
 
 .scroll-instruction {
@@ -143,7 +147,7 @@ body {
 
 .hero-text,
 .scroll-instruction {
-  transition: opacity 1s ease;
+  transition: opacity 3s ease;
 }
 
 .scroll {
@@ -230,5 +234,54 @@ body {
 @media screen and (max-width: 800px) {
   .hero-text {
     display: none;
+  }
+
+  .mobile-text-container {
+    opacity: 0;
+    transition: fade-in 8s ease-in-out forwards;
+  }
+  .mobile-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-text-container p {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Adjust the font size as needed */
+    text-align: center; /* Center the text horizontally */
+  }
+
+  .mobile-text-container.fade-in {
+    opacity: 1;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .mobile-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    z-index: 5;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }
